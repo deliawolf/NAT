@@ -14,7 +14,7 @@ R1(config)#int e0/3
 R1(config-if)#ip nat outside
 R1(config-if)#exit
 ```
-Add a static NAT configuration entry that translates the SRV1 IP address (10.10.2.20) to 198.51.100.20, then leave configuration mode.
+Add a static NAT configuration entry that translates the SRV1 IP address private ip (10.10.2.20) to public ip 198.51.100.20, then leave configuration mode.
 ```
 R1(config)#ip nat inside source static 10.10.2.20 198.51.100.20 
 ```
@@ -28,7 +28,7 @@ Pro Inside global      Inside local       Outside local      Outside global
 
 Dynamic NAT configuration differs from static NAT, but it also has some similarities. Like static NAT, it requires the configuration to identify each interface as an inside or outside interface. However, rather than creating a static map to a single IP address, a pool of inside global addresses is used, and an ACL that identifies which inside local addresses are to be translated. The ACL-to-NAT pool mapping is defined by the ip nat inside source list acl pool pool_name global configuration command.
 
-On R1, define a pool of inside global addresses named "NatPool" by specifying the address range from 198.51.100.100 to 198.51.100.149. 
+On R1, define a pool of inside global addresses(public ip) named "NatPool" by specifying the address range from 198.51.100.100 to 198.51.100.149. 
 ```
 R1(config)#ip nat pool NatPool 198.51.100.100 198.51.100.149 netmask 255.255.255.0
 ```
