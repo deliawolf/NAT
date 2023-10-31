@@ -1,5 +1,6 @@
 # NAT
 
+![Creating a NAT](https://raw.githubusercontent.com/deliawolf/NAT/main/Screenshot%202023-10-31%20at%2015.11.51.png)
 
 ## STATIC NAT
 
